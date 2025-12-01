@@ -10,7 +10,7 @@ services:
       - laravel
 
   nginx:
-    image: nginx:alpine
+    image: public.ecr.aws/nginx/nginx:alpine
     container_name: laravel_nginx
     ports:
       - "8000:80"

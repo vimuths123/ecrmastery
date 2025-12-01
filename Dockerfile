@@ -1,7 +1,7 @@
 # ------------------------------
 # Stage 1: Build Composer vendors
 # ------------------------------
-FROM composer:2 AS vendor
+FROM public.ecr.aws/composer/composer:2 AS vendor
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN composer dump-autoload --optimize
 # ------------------------------
 # Stage 2: Production Image
 # ------------------------------
-FROM php:8.3-fpm
+FROM public.ecr.aws/docker/library/php:8.3-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
