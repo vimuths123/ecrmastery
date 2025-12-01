@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Install Composer globally
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=vendor /usr/bin/composer /usr/bin/composer
 
 # Copy app from builder
 WORKDIR /var/www/html
